@@ -20,6 +20,17 @@ public class ItemService {
         itemRepository.save(item);
     }
 
+    // merge와 동일
+    @Transactional
+    public void updateItem(Long itemId, String name, int price, int stockQuantity) {
+        Item findItem = itemRepository.findOne(itemId);
+        // setter 대신 의미 있는 메소드를 만들어서 사용할 것
+        // findItem.change(name, price, stockQuantity);
+        findItem.setName(name);
+        findItem.setPrice(price);
+        findItem.setStockQuantity(stockQuantity);
+    }
+
     public List<Item> findItems() {
         return itemRepository.findAll();
     }

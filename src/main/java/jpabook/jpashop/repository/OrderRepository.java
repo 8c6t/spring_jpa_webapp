@@ -67,7 +67,7 @@ public class OrderRepository {
     /**
      * JPA Criteria
      */
-    public List<Order> findALlByCriteria(OrderSearch orderSearch) {
+    public List<Order> findAllByCriteria(OrderSearch orderSearch) {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<Order> cq = cb.createQuery(Order.class);
         Root<Order> o = cq.from(Order.class);
